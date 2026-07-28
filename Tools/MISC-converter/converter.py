@@ -3,152 +3,75 @@
 
 """
 ================================================================================
-              进制转换器 + 文件内容进制分析 + 可打印字符串提取
+                   进制转换器 + 文件内容进制分析 + 多编码字符串提取
 ================================================================================
 
-项目描述
---------
-这是一个多功能进制工具，提供两种核心功能：
+项目名称
+    HexConverter Pro
 
-1. 交互式进制转换（原有功能）
-   支持 2~36 进制任意互转，数字 10~35 用 A~Z 表示（不区分大小写）。
-   转换后会显示该数值的十进制、二进制、八进制、十六进制以及对应的可打印 ASCII 字符。
+项目简介
+    HexConverter Pro 是一个强大的命令行工具，提供三种核心功能：
+    1. 交互式进制转换：支持 2~36 进制任意互转，并显示数值的多种进制表示，
+       以及将该数值作为大端字节序列时，在多种编码（ASCII, UTF-8, UTF-16LE,
+       UTF-16BE, GBK）下的可打印字符串（如果全部可打印）。
+    2. 文件整体进制分析：将任意文件的所有字节视为一个大整数，
+       输出其十进制、二进制、八进制、十六进制表示。
+    3. 多编码可打印字符串提取：扫描文件，尝试多种编码解码，提取所有连续
+       的可打印字符序列（长度≥4），并显示对应的十六进制字节串。
 
-2. 文件内容进制分析（新增核心功能）
-   将整个文件的内容（所有字节）视为一个巨大的无符号整数，并显示其：
-     - 十进制
-     - 二进制
-     - 八进制
-     - 十六进制
-   同时，扫描文件中的所有可打印 ASCII 字符串（长度 ≥ 4），按顺序列出，
-   类似于 Unix 的 `strings` 命令，方便快速查看文件中的可读文本。
+应用场景
+    • CTF 竞赛中快速分析二进制文件，提取隐藏的 flag。
+    • 日常开发中查看二进制文件的明文片段。
+    • 对十六进制或编码字符串进行快速转换和验证。
+    • 在交互模式下，探索数值的字节表示及可打印字符串。
 
-功能特性
---------
-• 支持 2~36 进制任意转换（交互模式）。
-• 文件整体进制分析：适用于任意二进制文件（包括文本、图片、可执行文件等）。
-• 大整数处理：利用 Python 的任意精度整数，可处理任意大小的文件。
-• 可打印字符串提取：自动过滤并显示长度 ≥ 4 的可打印字符序列。
-• 两种运行模式：
-   - 交互模式（无参数）：逐次输入数字、源进制、目标进制。
-   - 文件分析模式（-f 文件路径）：分析整个文件，输出进制信息和可打印字符串。
-• 命令行参数清晰，支持输出重定向。
+核心功能
+    🔢 进制转换（交互模式）
+        - 支持 2~36 进制任意互转。
+        - 转换后显示十进制、二进制、八进制、十六进制。
+        - 将数值转为大端字节序列，显示其十六进制字节串。
+        - 用多种编码解码该字节序列，若结果全部为可打印字符，则显示该字符串。
+
+    📁 文件整体进制分析（文件模式）
+        - 读取整个文件，解释为大端序整数。
+        - 输出十进制、二进制、八进制、十六进制（按字节分组）。
+        - 提取 ASCII 及多编码可打印字符串（长度≥4）并显示十六进制。
+
+    🔍 多编码可打印字符串提取（文件模式）
+        - 支持的编码：ASCII、UTF-8、UTF-16LE、UTF-16BE、GBK。
+        - 对每个编码，解码整个文件（替换无效字节），找出连续的可打印字符片段。
+        - 输出每个片段的文本内容及对应的原始字节十六进制串。
+
+安装与依赖
+    无需安装第三方库，仅需 Python 3.6 及以上版本（使用标准库）。
 
 使用方法
---------
+    1. 交互模式（无参数）：
+           python converter.py
+       按提示输入数字、源进制、目标进制。
 
-【交互模式】
-    python converter.py
-    按提示输入数字、源进制、目标进制，即可获得转换结果及详细信息。
+    2. 文件分析模式：
+           python converter.py -f <文件路径>
+       将分析指定文件并输出进制信息和提取的字符串。
 
-【文件分析模式】
-    python converter.py -f <文件路径>
-    程序将读取指定文件，输出：
-        - 文件大小（字节数）
-        - 该文件内容的十进制整数
-        - 二进制、八进制、十六进制表示（十六进制会按字节分组显示）
-        - 提取出的所有可打印字符串（长度≥4）
-
-    示例：
-        python converter.py -f myfile.bin
-
-    也可以将输出保存到文件：
-        python converter.py -f myfile.bin > output.txt
-
-命令行参数：
-    -f, --file   : 指定要分析的文件路径（必需，用于文件分析模式）
-    -h, --help   : 显示帮助信息
-
-输入/输出格式
--------------
-• 交互模式：输入数字（可含字母），源进制，目标进制。
-• 文件分析模式：读取文件字节，将其解释为大整数，然后输出多种进制表示。
+命令行参数
+    -f, --file <path>    指定要分析的文件（启用文件模式）
+    -h, --help           显示帮助信息
 
 使用案例
---------
+    见文档末尾。
 
-【案例1：交互模式 – 十六进制 'FF' 转十进制】
-    $ python converter.py
-    ...
-    请输入要转换的数字 (或 'q' 退出): FF
-    请输入源进制 (2-36): 16
-    请输入目标进制 (2-36): 10
-
-    --- 数值详细信息 ---
-    十进制  : 255
-    二进制  : 11111111
-    八进制  : 377
-    十六进制: FF
-    可打印字符: 超出 ASCII 范围（不可打印）
-    ---------------------
-
-    转换结果（16进制 → 10进制）: 255
-
-【案例2：交互模式 – 十进制 65 转十六进制】
-    请输入要转换的数字 (或 'q' 退出): 65
-    请输入源进制 (2-36): 10
-    请输入目标进制 (2-36): 16
-
-    --- 数值详细信息 ---
-    十进制  : 65
-    二进制  : 1000001
-    八进制  : 101
-    十六进制: 41
-    可打印字符: 'A'
-    ---------------------
-
-    转换结果（10进制 → 16进制）: 41
-
-【案例3：文件分析模式 – 分析一个文本文件】
-    假设有一个文件 hello.txt，内容为 "Hello, 世界!"（UTF-8 编码，占用 15 字节）
-    运行：
-        python converter.py -f hello.txt
-
-    输出示例：
-        ========================================
-        文件分析: hello.txt
-        文件大小: 15 字节
-        ========================================
-
-        十进制整数: 721903759373840516860969563446330...
-        (完整数字很长，这里省略)
-
-        二进制表示: 101011010101...
-        八进制表示: 123456...
-        十六进制表示: 48656C6C6F2C20E4B896E7958C21
-        (按字节分组: 48 65 6C 6C 6F 2C 20 E4 B8 96 E7 95 8C 21)
-
-        提取的可打印字符串（长度≥4）:
-        Hello
-        世界
-
-【案例4：文件分析模式 – 分析二进制文件（如ELF或图片）】
-    python converter.py -f /bin/ls
-    会输出该文件内容的巨大整数表示，以及其中包含的所有可打印字符串（如路径名、库名等）。
-
-注意事项
---------
-• 大文件可能会生成非常长的数字字符串（例如 1MB 文件有约 2.4 百万位十进制数），
-  输出可能非常庞大，建议重定向到文件。
-• 十六进制表示默认按字节分组显示（每两个十六进制字符一组），方便阅读。
-• 可打印字符串提取仅针对 ASCII 可打印字符（32~126），且长度至少为 4。
-• 文件分析模式不修改原文件，只读。
-
-环境要求
---------
-- Python 3.6 及以上（标准库，无需额外安装）。
-
-版本信息
---------
-版本 4.0 (2026-07-26)
-  新增：文件整体进制分析功能
-  新增：可打印字符串提取（类 strings）
-  保留：原有交互式进制转换
-  重构：代码模块化，增加命令行参数解析
+版本历史
+    v5.2 (2026-07-28) - 删除 UTF-32 编码支持，精简编码列表
+    v5.1 (2026-07-28) - 交互模式增加多编码字节序列可打印字符串显示
+    v5.0 (2026-07-28) - 新增多编码可打印字符串提取（UTF-8, UTF-16LE/BE, GBK）
+    v4.0 (2026-07-26) - 增加文件整体进制分析及 ASCII strings
+    v1.0 (初始版本)   - 交互式进制转换
 
 作者
-----
-（此处可填写您的名字）
+    CTF-Tools 团队
+许可证
+    MIT License
 ================================================================================
 """
 
@@ -156,10 +79,10 @@ import argparse
 import sys
 import os
 
+
 # ---------- 核心功能：进制转换 ----------
 
 def from_base10(num: int, base: int) -> str:
-    """将十进制整数转换为指定进制（2~36）的字符串"""
     if num == 0:
         return "0"
     digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -171,26 +94,7 @@ def from_base10(num: int, base: int) -> str:
     return result
 
 
-def show_number_info(value: int) -> None:
-    """打印数值的多种进制表示及可打印字符（交互模式）"""
-    print("\n--- 数值详细信息 ---")
-    print(f"十进制  : {value}")
-    print(f"二进制  : {format(value, 'b')}")
-    print(f"八进制  : {format(value, 'o')}")
-    print(f"十六进制: {format(value, 'X')}")
-
-    if 32 <= value <= 126:
-        print(f"可打印字符: '{chr(value)}'")
-    else:
-        if 0 <= value <= 127:
-            print("可打印字符: 控制字符（不可打印）")
-        else:
-            print("可打印字符: 超出 ASCII 范围（不可打印）")
-    print("---------------------")
-
-
 def convert(num_str: str, from_base: int, to_base: int) -> str:
-    """将 num_str（from_base 进制）转换为 to_base 进制的字符串"""
     try:
         decimal_value = int(num_str, from_base)
     except ValueError:
@@ -198,13 +102,82 @@ def convert(num_str: str, from_base: int, to_base: int) -> str:
     return from_base10(decimal_value, to_base)
 
 
-# ---------- 文件分析功能 ----------
+# ---------- 字节序列多编码可打印字符串检测（交互模式用） ----------
+
+def display_byte_encodings(value: int) -> None:
+    """
+    将整数转换为大端字节序列，尝试多种编码解码整个字节序列，
+    若解码后全部为可打印字符（不含替换字符），则显示该字符串及其十六进制。
+    """
+    if value == 0:
+        byte_data = b'\x00'
+    else:
+        byte_length = (value.bit_length() + 7) // 8
+        byte_data = value.to_bytes(byte_length, 'big')
+
+    print(f"字节十六进制: {' '.join(f'{b:02X}' for b in byte_data)}")
+
+    # 定义编码列表（已移除 UTF-32）
+    encodings = [
+        ('ASCII', 'ascii'),
+        ('UTF-8', 'utf-8'),
+        ('UTF-16LE', 'utf-16-le'),
+        ('UTF-16BE', 'utf-16-be'),
+        ('GBK', 'gbk'),
+    ]
+
+    found_any = False
+    for name, enc in encodings:
+        try:
+            decoded = byte_data.decode(enc, errors='replace')
+        except (LookupError, UnicodeDecodeError):
+            continue
+        # 检查是否包含替换字符，且所有字符可打印
+        if '\ufffd' in decoded:
+            continue
+        if all(ch.isprintable() for ch in decoded):
+            print(f"{name} 可打印字符串: \"{decoded}\"")
+            found_any = True
+    if not found_any:
+        print("（无编码能完全解码为可打印字符）")
+
+
+# ---------- 文件模式：多编码可打印字符串提取 ----------
+
+def extract_strings_by_encoding(data: bytes, encoding: str, min_len: int = 4):
+    """
+    尝试用指定编码解码整个字节串（errors='replace'），
+    找出其中连续的可打印字符片段（长度>=min_len），
+    返回列表，每个元素为 (解码后的文本片段, 对应原始字节的十六进制字符串)。
+    """
+    try:
+        decoded = data.decode(encoding, errors='replace')
+    except (LookupError, UnicodeDecodeError):
+        return []
+
+    results = []
+    i = 0
+    n = len(decoded)
+    while i < n:
+        # 寻找可打印字符且不是替换字符
+        if decoded[i].isprintable() and decoded[i] != '\ufffd':
+            start = i
+            while i < n and decoded[i].isprintable() and decoded[i] != '\ufffd':
+                i += 1
+            end = i
+            text = decoded[start:end]
+            if len(text) >= min_len:
+                raw_bytes = data[start:end]  # 解码后长度等于原始长度（因为 errors='replace'）
+                hex_repr = ' '.join(f'{b:02X}' for b in raw_bytes)
+                results.append((text, hex_repr))
+        else:
+            i += 1
+    return results
+
+
+# ---------- 文件分析 ----------
 
 def analyze_file(filepath: str) -> None:
-    """
-    读取整个文件，将其内容解释为一个大整数，并显示各种进制表示，
-    同时提取并打印所有可打印 ASCII 字符串（长度≥4）。
-    """
     try:
         with open(filepath, 'rb') as f:
             data = f.read()
@@ -225,10 +198,8 @@ def analyze_file(filepath: str) -> None:
         print("文件为空。")
         return
 
-    # 将字节转为大整数（大端序）
+    # 整体进制表示
     integer = int.from_bytes(data, 'big')
-
-    # 显示各种进制
     print("\n十进制整数:")
     print(integer)
     print("\n二进制表示:")
@@ -237,46 +208,52 @@ def analyze_file(filepath: str) -> None:
     print(format(integer, 'o'))
     print("\n十六进制表示:")
     hex_str = format(integer, 'X')
-    # 如果长度是奇数，前面补0使其成为偶数个字符，以便分组
     if len(hex_str) % 2 == 1:
         hex_str = '0' + hex_str
-    # 每两个字符一组，用空格分隔，便于阅读
     grouped_hex = ' '.join(hex_str[i:i+2] for i in range(0, len(hex_str), 2))
     print(grouped_hex)
 
-    # ---------- 提取可打印字符串（类似 strings） ----------
-    print("\n提取的可打印字符串（长度≥4）:")
-    strings_found = []
-    current = []
-    for byte in data:
-        if 32 <= byte <= 126:  # 可打印 ASCII
-            current.append(chr(byte))
-        else:
-            if len(current) >= 4:
-                strings_found.append(''.join(current))
-            current = []
-    # 处理末尾
-    if len(current) >= 4:
-        strings_found.append(''.join(current))
-
-    if strings_found:
-        for s in strings_found:
-            print(s)
+    # 提取 ASCII 字符串（经典 strings）
+    print("\n" + "=" * 50)
+    print("ASCII 可打印字符串 (长度≥4) 及其十六进制:")
+    ascii_strings = extract_strings_by_encoding(data, 'ascii', min_len=4)
+    if ascii_strings:
+        for text, hex_repr in ascii_strings:
+            print(f"  {text}")
+            print(f"    hex: {hex_repr}")
     else:
-        print("（未找到长度≥4的可打印字符串）")
+        print("  (未找到)")
+
+    # 多编码尝试（已移除 UTF-32）
+    encodings = [
+        ('UTF-8', 'utf-8'),
+        ('UTF-16LE', 'utf-16-le'),
+        ('UTF-16BE', 'utf-16-be'),
+        ('GBK', 'gbk'),
+    ]
+    for name, enc in encodings:
+        print("\n" + "=" * 50)
+        print(f"{name} 可打印字符串 (长度≥4) 及其十六进制:")
+        strings = extract_strings_by_encoding(data, enc, min_len=4)
+        if strings:
+            for text, hex_repr in strings:
+                print(f"  {text}")
+                print(f"    hex: {hex_repr}")
+        else:
+            print("  (未找到)")
 
 
 # ---------- 交互模式 ----------
 
 def interactive_mode():
-    """原有的交互式转换功能"""
     print("=" * 55)
-    print("         进制转换器 + 打印信息（八进制、十六进制、字符）")
+    print("         进制转换器 + 字节序列多编码可打印字符串")
     print("=" * 55)
     print("说明：")
     print("  • 数字 0~9，字母 A~Z 表示 10~35（不区分大小写）")
-    print("  • 转换后自动显示该数值的十进制、二进制、八进制、十六进制")
-    print("  • 若数值为可打印 ASCII 字符，则会显示该字符")
+    print("  • 转换后自动显示数值的进制信息，以及该数值的大端字节序列")
+    print("  • 尝试用 ASCII, UTF-8, UTF-16LE, UTF-16BE, GBK 解码字节序列")
+    print("  • 若解码后全部为可打印字符，则显示对应字符串")
     print("  • 输入 'q' 退出程序\n")
 
     while True:
@@ -284,19 +261,24 @@ def interactive_mode():
             num = input("请输入要转换的数字 (或 'q' 退出): ").strip()
             if num.lower() == 'q':
                 break
-
             from_base = int(input("请输入源进制 (2-36): "))
             to_base = int(input("请输入目标进制 (2-36): "))
-
             if not (2 <= from_base <= 36) or not (2 <= to_base <= 36):
                 print("错误：进制必须在 2 到 36 之间\n")
                 continue
-
             decimal_value = int(num, from_base)
-            show_number_info(decimal_value)
-            result = convert(num, from_base, to_base)
-            print(f"转换结果（{from_base}进制 → {to_base}进制）: {result}\n")
 
+            print("\n--- 数值详细信息 ---")
+            print(f"十进制  : {decimal_value}")
+            print(f"二进制  : {format(decimal_value, 'b')}")
+            print(f"八进制  : {format(decimal_value, 'o')}")
+            print(f"十六进制: {format(decimal_value, 'X')}")
+
+            # 显示字节序列多编码解析
+            display_byte_encodings(decimal_value)
+
+            result = convert(num, from_base, to_base)
+            print(f"\n转换结果（{from_base}进制 → {to_base}进制）: {result}\n")
         except ValueError as e:
             print(f"输入错误: {e}\n")
         except KeyboardInterrupt:
@@ -310,13 +292,10 @@ def interactive_mode():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="进制转换器 + 文件内容进制分析 + 可打印字符串提取",
+        description="进制转换器 + 文件内容进制分析 + 多编码可打印字符串提取",
         epilog="使用 -f 分析文件，无参数则进入交互模式。"
     )
-    parser.add_argument(
-        "-f", "--file",
-        help="指定要分析的文件路径（读取整个文件作为大整数进制分析）"
-    )
+    parser.add_argument("-f", "--file", help="指定要分析的文件路径")
     args = parser.parse_args()
 
     if args.file:
