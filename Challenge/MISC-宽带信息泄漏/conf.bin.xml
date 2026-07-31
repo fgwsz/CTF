@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<DslCpeConfig>
+  <InternetGatewayDevice>
+    <DeviceSummary val="InternetGatewayDevice:1.1[](Baseline:1, EthernetLAN:1)" />
+    <LANDeviceNumberOfEntries val=1 />
+    <WANDeviceNumberOfEntries val=1 />
+    <DeviceInfo>
+      <ManufacturerOUI val=D0C7C0 />
+      <SerialNumber val=D0C7C0435368 />
+      <HardwareVersion val="FWR310 v4 00000001" />
+      <SoftwareVersion val="0.9.0 1.0 v202c.0 Build 130701 Rel.34994n" />
+    </DeviceInfo>
+    <X_TP_EthSwitch>
+      <NumberOfVirtualPorts val=2 />
+      <IfName val=eth0 />
+    </X_TP_EthSwitch>
+    <X_TP_NetCfg>
+      <DNSServers val=202.102.152.3,202.102.154.3 />
+      <DNSifAliasName val=pppoe_eth1_d />
+      <CurrDNSServer val=3395721219 />
+    </X_TP_NetCfg>
+    <X_TP_UserCfg>
+      <AdminPwd val=123456789 />
+    </X_TP_UserCfg>
+    <X_TP_AppCfg>
+      <PhDDNSCfg instance=1 >
+      </PhDDNSCfg>
+      <PhDDNSCfg nextInstance=2 />
+    </X_TP_AppCfg>
+    <Time>
+      <CurrentLocalTime val=2017-03-27T13:59:56+08:00 />
+    </Time>
+    <Layer3Forwarding>
+      <__defaultGateway val=10.177.144.1 />
+      <__ifName val=ppp0 />
+      <__ifAliasName val=pppoe_eth1_d />
+    </Layer3Forwarding>
+    <Layer2Bridging>
+      <BridgeNumberOfEntries val=1 />
+      <FilterNumberOfEntries val=3 />
+      <AvailableInterfaceNumberOfEntries val=3 />
+      <Bridge instance=1 >
+        <BridgeEnable val=1 />
+        <BridgeName val=Default />
+      </Bridge>
+      <Bridge nextInstance=2 />
+      <Filter instance=1 >
+        <FilterKey val=1 />
+        <FilterEnable val=1 />
+        <FilterBridgeReference val=0 />
+        <__filterBridgeRefName val=Default />
+        <FilterInterface val=eth0 />
+        <X_TP_IfAliasName val=LAN />
+      </Filter>
+      <Filter instance=2 >
+        <FilterKey val=2 />
+        <FilterEnable val=1 />
+        <FilterBridgeReference val=0 />
+        <__filterBridgeRefName val=Default />
+        <FilterInterface val=eth1 />
+        <X_TP_IfAliasName val=ipoe_eth1_s />
+      </Filter>
+      <Filter instance=3 >
+        <FilterKey val=3 />
+        <FilterEnable val=1 />
+        <FilterBridgeReference val=0 />
+        <__filterBridgeRefName val=Default />
+        <FilterInterface val=ra0 />
+        <X_TP_IfAliasName val=ra0 />
+      </Filter>
+      <Filter nextInstance=4 />
+      <AvailableInterface instance=1 >
+        <AvailableInterfaceKey val=1 />
+        <InterfaceType val=LANInterface />
+        <InterfaceReference val=LAN_ETH_INTF#1,1 />
+      </AvailableInterface>
+      <AvailableInterface instance=2 >
+        <AvailableInterfaceKey val=2 />
+        <InterfaceType val=WANInterface />
+        <InterfaceReference val=WAN_IP_CONN#1,1,1 />
+      </AvailableInterface>
+      <AvailableInterface instance=3 >
+        <AvailableInterfaceKey val=3 />
+        <InterfaceType val=LANInterface />
+        <InterfaceReference val=LAN_WLAN#1,1 />
+      </AvailableInterface>
+      <AvailableInterface nextInstance=4 />
+    </Layer2Bridging>
+    <LANDevice instance=1 >
+      <LANEthernetInterfaceNumberOfEntries val=1 />
+      <LANWLANConfigurationNumberOfEntries val=1 />
+      <LANHostConfigManagement>
+        <DHCPServerEnable val=1 />
+        <MinAddress val=192.168.1.100 />
+        <MaxAddress val=192.168.1.199 />
+        <IPRouters val=192.168.1.1 />
+        <IPInterfaceNumberOfEntries val=1 />
+        <IPInterface instance=1 >
+          <Enable val=1 />
+          <__ifName val=br0 />
+        </IPInterface>
+        <IPInterface nextInstance=2 />
+      </LANHostConfigManagement>
+      <LANEthernetInterfaceConfig instance=1 >
+        <Enable val=1 />
+        <Status val=Up />
+        <MACAddress val=D0:C7:C0:43:53:68 />
+        <__ifName val=eth0 />
+      </LANEthernetInterfaceConfig>
+      <LANEthernetInterfaceConfig nextInstance=2 />
+      <WLANConfiguration instance=1 >
+        <Enable val=1 />
+        <Name val=ra0 />
+        <Channel val=1 />
+        <AutoChannelEnable val=1 />
+        <SSID val=,FAST_ab1668 />
+        <BeaconType val=WPAand11i />
+        <X_TP_MACAddressControlRule val=deny />
+        <X_TP_Band val=2.4GHz />
+        <X_TP_Bandwidth val=Auto />
+        <Standard val=n />
+        <WEPKeyIndex val=1 />
+        <BasicEncryptionModes val=None />
+        <BasicAuthenticationMode val=None />
+        <WPAEncryptionModes val=TKIPandAESEncryption />
+        <WPAAuthenticationMode val=PSKAuthentication />
+        <IEEE11iEncryptionModes val=TKIPandAESEncryption />
+        <IEEE11iAuthenticationMode val=PSKAuthentication />
+        <X_TP_PreSharedKey val=77182182 />
+        <SSIDAdvertisementEnabled val=1 />
+        <TransmitPower val=100 />
+        <RegulatoryDomain val="CN " />
+        <DeviceOperationMode val=InfrastructureAccessPoint />
+        <WMMEnable val=1 />
+        <X_TP_ShortGIEnable val=1 />
+        <WPS>
+          <Enable val=1 />
+          <DevicePassword val=16239098 />
+          <ConfigurationState val=Configured />
+        </WPS>
+        <WEPKey instance=1 >
+        </WEPKey>
+        <WEPKey instance=2 >
+        </WEPKey>
+        <WEPKey instance=3 >
+        </WEPKey>
+        <WEPKey instance=4 >
+        </WEPKey>
+        <WEPKey nextInstance=5 />
+        <X_TP_WDSBridge>
+          <X_TP_WDSName val=apcli0 />
+          <X_TP_BridgeAuthMode val=Open />
+          <X_TP_BridgeEncryptMode val=None />
+          <X_TP_BridgeWepKeyIndex val=1 />
+        </X_TP_WDSBridge>
+        <X_TP_WlBrName instance=1 >
+          <IfName val=ra0 />
+          <BridgeName val=br0 />
+        </X_TP_WlBrName>
+        <X_TP_WlBrName nextInstance=2 />
+      </WLANConfiguration>
+      <WLANConfiguration nextInstance=2 />
+    </LANDevice>
+    <LANDevice nextInstance=2 />
+    <WANDevice instance=1 >
+      <WANConnectionNumberOfEntries val=1 />
+      <WANCommonInterfaceConfig>
+        <EnabledForInternet val=1 />
+        <WANAccessType val=Ethernet />
+      </WANCommonInterfaceConfig>
+      <WANEthernetInterfaceConfig>
+        <Enable val=1 />
+        <Status val=Up />
+        <X_TP_IfName val=eth1 />
+        <X_TP_lastUsedIntf val=pppoe_eth3_d />
+      </WANEthernetInterfaceConfig>
+      <WANConnectionDevice instance=1 >
+        <WANIPConnectionNumberOfEntries val=1 />
+        <WANEthernetLinkConfig>
+          <Enable val=1 />
+          <EthernetLinkStatus val=Up />
+          <X_TP_IfName val=eth1 />
+        </WANEthernetLinkConfig>
+        <WANIPConnection instance=1 >
+          <ConnectionType val=IP_Routed />
+          <Name val=ipoe_eth1_s />
+          <NATEnabled val=1 />
+          <ExternalIPAddress val=0.0.0.0 />
+          <SubnetMask val=0.0.0.0 />
+          <DefaultGateway val=0.0.0.0 />
+          <X_TP_IfName val=eth1 />
+        </WANIPConnection>
+        <WANIPConnection instance=2 >
+          <ConnectionType val=IP_Routed />
+          <Name val=ipoe_eth1_d />
+          <X_TP_ConnectionId val=0 />
+          <NATEnabled val=1 />
+          <X_TP_Hostname val=,FWR310 />
+          <AddressingType val=DHCP />
+          <ExternalIPAddress val=0.0.0.0 />
+          <SubnetMask val=0.0.0.0 />
+          <DefaultGateway val=0.0.0.0 />
+          <DNSServers val=0.0.0.0,0.0.0.0 />
+          <MACAddress val=D0:C7:C0:43:53:69 />
+          <X_TP_IfName val=eth1 />
+        </WANIPConnection>
+        <WANIPConnection nextInstance=3 />
+        <WANPPPConnection instance=1 >
+          <Enable val=1 />
+          <DefaultGateway val=10.177.144.1 />
+          <Name val=pppoe_eth1_d />
+          <Uptime val=671521 />
+          <Username val=053700357621 />
+          <Password val=210265 />
+          <X_TP_IfName val=ppp0 />
+          <X_TP_L2IfName val=eth1 />
+          <X_TP_ConnectionId val=1 />
+          <ExternalIPAddress val=10.177.150.82 />
+          <RemoteIPAddress val=10.177.144.1 />
+          <DNSServers val=202.102.152.3,202.102.154.3 />
+          <MACAddress val=D0:C7:C0:43:53:69 />
+        </WANPPPConnection>
+        <WANPPPConnection nextInstance=2 />
+      </WANConnectionDevice>
+      <WANConnectionDevice nextInstance=2 />
+    </WANDevice>
+    <WANDevice nextInstance=2 />
+    <X_TP_Firewall>
+      <InternalHost instance=1 >
+        <RefCnt val=1 />
+        <Type val=1 />
+        <EntryName val=childMac1 />
+        <IsParentCtrl val=1 />
+      </InternalHost>
+      <InternalHost instance=2 >
+        <RefCnt val=1 />
+        <Type val=1 />
+        <EntryName val=childMac2 />
+        <IsParentCtrl val=1 />
+      </InternalHost>
+      <InternalHost instance=3 >
+        <RefCnt val=1 />
+        <Type val=1 />
+        <EntryName val=childMac3 />
+        <IsParentCtrl val=1 />
+      </InternalHost>
+      <InternalHost instance=4 >
+        <RefCnt val=1 />
+        <Type val=1 />
+        <EntryName val=childMac4 />
+        <IsParentCtrl val=1 />
+      </InternalHost>
+      <InternalHost nextInstance=5 />
+      <ExternalHost instance=1 >
+        <RefCnt val=4 />
+        <Type val=2 />
+        <EntryName val=childUrl1 />
+        <IsParentCtrl val=1 />
+        <PortStart val=80 />
+      </ExternalHost>
+      <ExternalHost nextInstance=2 />
+      <TaskSchedule instance=1 >
+        <RefCnt val=4 />
+        <IsParentCtrl val=1 />
+        <EntryName val=childSchedule1 />
+      </TaskSchedule>
+      <TaskSchedule nextInstance=2 />
+      <Rule instance=1 >
+        <Enable val=1 />
+        <RuleName val=parentCtrl1 />
+        <IsParentCtrl val=1 />
+        <Direction val=1 />
+        <InternalHostRef val=childMac1 />
+        <ExternalHostRef val=childUrl1 />
+        <ScheduleRef val=childSchedule1 />
+      </Rule>
+      <Rule instance=2 >
+        <Enable val=1 />
+        <RuleName val=parentCtrl2 />
+        <IsParentCtrl val=1 />
+        <Direction val=1 />
+        <InternalHostRef val=childMac2 />
+        <ExternalHostRef val=childUrl1 />
+        <ScheduleRef val=childSchedule1 />
+      </Rule>
+      <Rule instance=3 >
+        <Enable val=1 />
+        <RuleName val=parentCtrl3 />
+        <IsParentCtrl val=1 />
+        <Direction val=1 />
+        <InternalHostRef val=childMac3 />
+        <ExternalHostRef val=childUrl1 />
+        <ScheduleRef val=childSchedule1 />
+      </Rule>
+      <Rule instance=4 >
+        <Enable val=1 />
+        <RuleName val=parentCtrl4 />
+        <IsParentCtrl val=1 />
+        <Direction val=1 />
+        <InternalHostRef val=childMac4 />
+        <ExternalHostRef val=childUrl1 />
+        <ScheduleRef val=childSchedule1 />
+      </Rule>
+      <Rule nextInstance=5 />
+      <UrlList>
+        <UrlCfg instance=1 >
+        </UrlCfg>
+        <UrlCfg instance=2 >
+        </UrlCfg>
+        <UrlCfg instance=3 >
+        </UrlCfg>
+        <UrlCfg instance=4 >
+        </UrlCfg>
+        <UrlCfg instance=5 >
+        </UrlCfg>
+        <UrlCfg instance=6 >
+        </UrlCfg>
+        <UrlCfg instance=7 >
+        </UrlCfg>
+        <UrlCfg instance=8 >
+        </UrlCfg>
+        <UrlCfg instance=9 >
+        </UrlCfg>
+        <UrlCfg instance=10 >
+        </UrlCfg>
+        <UrlCfg instance=11 >
+        </UrlCfg>
+        <UrlCfg instance=12 >
+        </UrlCfg>
+        <UrlCfg instance=13 >
+        </UrlCfg>
+        <UrlCfg instance=14 >
+        </UrlCfg>
+        <UrlCfg instance=15 >
+        </UrlCfg>
+        <UrlCfg instance=16 >
+        </UrlCfg>
+        <UrlCfg instance=17 >
+        </UrlCfg>
+        <UrlCfg instance=18 >
+        </UrlCfg>
+        <UrlCfg instance=19 >
+        </UrlCfg>
+        <UrlCfg instance=20 >
+        </UrlCfg>
+        <UrlCfg instance=21 >
+        </UrlCfg>
+        <UrlCfg instance=22 >
+        </UrlCfg>
+        <UrlCfg instance=23 >
+        </UrlCfg>
+        <UrlCfg instance=24 >
+        </UrlCfg>
+        <UrlCfg instance=25 >
+        </UrlCfg>
+        <UrlCfg instance=26 >
+        </UrlCfg>
+        <UrlCfg instance=27 >
+        </UrlCfg>
+        <UrlCfg instance=28 >
+        </UrlCfg>
+        <UrlCfg instance=29 >
+        </UrlCfg>
+        <UrlCfg instance=30 >
+        </UrlCfg>
+        <UrlCfg instance=31 >
+        </UrlCfg>
+        <UrlCfg instance=32 >
+        </UrlCfg>
+        <UrlCfg instance=33 >
+        </UrlCfg>
+        <UrlCfg instance=34 >
+        </UrlCfg>
+        <UrlCfg instance=35 >
+        </UrlCfg>
+        <UrlCfg instance=36 >
+        </UrlCfg>
+        <UrlCfg instance=37 >
+        </UrlCfg>
+        <UrlCfg instance=38 >
+        </UrlCfg>
+        <UrlCfg instance=39 >
+        </UrlCfg>
+        <UrlCfg instance=40 >
+        </UrlCfg>
+        <UrlCfg instance=41 >
+        </UrlCfg>
+        <UrlCfg instance=42 >
+        </UrlCfg>
+        <UrlCfg instance=43 >
+        </UrlCfg>
+        <UrlCfg instance=44 >
+        </UrlCfg>
+        <UrlCfg instance=45 >
+        </UrlCfg>
+        <UrlCfg instance=46 >
+        </UrlCfg>
+        <UrlCfg instance=47 >
+        </UrlCfg>
+        <UrlCfg instance=48 >
+        </UrlCfg>
+        <UrlCfg instance=49 >
+        </UrlCfg>
+        <UrlCfg instance=50 >
+        </UrlCfg>
+        <UrlCfg instance=51 >
+        </UrlCfg>
+        <UrlCfg instance=52 >
+        </UrlCfg>
+        <UrlCfg instance=53 >
+        </UrlCfg>
+        <UrlCfg instance=54 >
+        </UrlCfg>
+        <UrlCfg instance=55 >
+        </UrlCfg>
+        <UrlCfg instance=56 >
+        </UrlCfg>
+        <UrlCfg instance=57 >
+        </UrlCfg>
+        <UrlCfg instance=58 >
+        </UrlCfg>
+        <UrlCfg instance=59 >
+        </UrlCfg>
+        <UrlCfg instance=60 >
+        </UrlCfg>
+        <UrlCfg instance=61 >
+        </UrlCfg>
+        <UrlCfg instance=62 >
+        </UrlCfg>
+        <UrlCfg instance=63 >
+        </UrlCfg>
+        <UrlCfg instance=64 >
+        </UrlCfg>
+        <UrlCfg instance=65 >
+        </UrlCfg>
+        <UrlCfg instance=66 >
+        </UrlCfg>
+        <UrlCfg instance=67 >
+        </UrlCfg>
+        <UrlCfg instance=68 >
+        </UrlCfg>
+        <UrlCfg instance=69 >
+        </UrlCfg>
+        <UrlCfg instance=70 >
+        </UrlCfg>
+        <UrlCfg instance=71 >
+        </UrlCfg>
+        <UrlCfg instance=72 >
+        </UrlCfg>
+        <UrlCfg instance=73 >
+        </UrlCfg>
+        <UrlCfg instance=74 >
+        </UrlCfg>
+        <UrlCfg instance=75 >
+        </UrlCfg>
+        <UrlCfg instance=76 >
+        </UrlCfg>
+        <UrlCfg instance=77 >
+        </UrlCfg>
+        <UrlCfg instance=78 >
+        </UrlCfg>
+        <UrlCfg instance=79 >
+        </UrlCfg>
+        <UrlCfg instance=80 >
+        </UrlCfg>
+        <UrlCfg instance=81 >
+        </UrlCfg>
+        <UrlCfg instance=82 >
+        </UrlCfg>
+        <UrlCfg instance=83 >
+        </UrlCfg>
+        <UrlCfg instance=84 >
+        </UrlCfg>
+        <UrlCfg instance=85 >
+        </UrlCfg>
+        <UrlCfg instance=86 >
+        </UrlCfg>
+        <UrlCfg instance=87 >
+        </UrlCfg>
+        <UrlCfg instance=88 >
+        </UrlCfg>
+        <UrlCfg instance=89 >
+        </UrlCfg>
+        <UrlCfg instance=90 >
+        </UrlCfg>
+        <UrlCfg instance=91 >
+        </UrlCfg>
+        <UrlCfg instance=92 >
+        </UrlCfg>
+        <UrlCfg instance=93 >
+        </UrlCfg>
+        <UrlCfg instance=94 >
+        </UrlCfg>
+        <UrlCfg instance=95 >
+        </UrlCfg>
+        <UrlCfg instance=96 >
+        </UrlCfg>
+        <UrlCfg instance=97 >
+        </UrlCfg>
+        <UrlCfg instance=98 >
+        </UrlCfg>
+        <UrlCfg instance=99 >
+        </UrlCfg>
+        <UrlCfg instance=100 >
+        </UrlCfg>
+        <UrlCfg nextInstance=101 />
+      </UrlList>
+    </X_TP_Firewall>
+  </InternetGatewayDevice>
+</DslCpeConfig>
+
+
