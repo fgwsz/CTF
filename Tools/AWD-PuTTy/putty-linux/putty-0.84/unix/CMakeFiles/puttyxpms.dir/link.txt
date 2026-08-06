@@ -1,0 +1,2 @@
+/usr/bin/ar qc libputtyxpms.a CMakeFiles/puttyxpms.dir/putty-xpm.c.o CMakeFiles/puttyxpms.dir/putty-rgb.c.o CMakeFiles/puttyxpms.dir/putty-config-xpm.c.o CMakeFiles/puttyxpms.dir/putty-config-rgb.c.o
+/usr/bin/ranlib libputtyxpms.a

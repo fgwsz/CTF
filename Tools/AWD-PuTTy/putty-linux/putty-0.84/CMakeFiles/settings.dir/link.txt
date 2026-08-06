@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsettings.a CMakeFiles/settings.dir/cmdline.c.o CMakeFiles/settings.dir/settings.c.o CMakeFiles/settings.dir/unix/storage.c.o
+/usr/bin/ranlib libsettings.a

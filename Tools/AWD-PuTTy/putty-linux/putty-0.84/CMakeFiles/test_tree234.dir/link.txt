@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/test_tree234.dir/utils/tree234.c.o -o test_tree234  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 

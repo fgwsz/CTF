@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcharset.a CMakeFiles/charset.dir/fromucs.c.o CMakeFiles/charset.dir/localenc.c.o CMakeFiles/charset.dir/macenc.c.o CMakeFiles/charset.dir/mimeenc.c.o CMakeFiles/charset.dir/sbcs.c.o CMakeFiles/charset.dir/__/CMakeFiles/sbcsdat.c.o CMakeFiles/charset.dir/slookup.c.o CMakeFiles/charset.dir/toucs.c.o CMakeFiles/charset.dir/utf8.c.o CMakeFiles/charset.dir/xenc.c.o
+/usr/bin/ranlib libcharset.a

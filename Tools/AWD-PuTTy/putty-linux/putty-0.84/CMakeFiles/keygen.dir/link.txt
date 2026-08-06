@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkeygen.a CMakeFiles/keygen.dir/import.c.o CMakeFiles/keygen.dir/keygen/dsa.c.o CMakeFiles/keygen.dir/keygen/ecdsa.c.o CMakeFiles/keygen.dir/keygen/millerrabin.c.o CMakeFiles/keygen.dir/keygen/mpunsafe.c.o CMakeFiles/keygen.dir/keygen/pockle.c.o CMakeFiles/keygen.dir/keygen/prime.c.o CMakeFiles/keygen.dir/keygen/primecandidate.c.o CMakeFiles/keygen.dir/keygen/rsa.c.o CMakeFiles/keygen.dir/keygen/smallprimes.c.o
+/usr/bin/ranlib libkeygen.a

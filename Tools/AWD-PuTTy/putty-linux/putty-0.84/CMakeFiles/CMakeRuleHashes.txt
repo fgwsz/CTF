@@ -1,0 +1,9 @@
+# Hashes of file build rules.
+3ef6b74f65f0a8aecfd11c618c54ecc8 CMakeFiles/check_git_commit
+7e1ef4ae388c2252f2ad3c0bb397366d CMakeFiles/cmake_commit_c
+634909985497800285219340738d7168 CMakeFiles/generated_licence_h
+42e82ced8729fbce25f6891cab34f5e4 CMakeFiles/licence.h.tmp
+b6aff489d6cbf436b473d858c95588aa CMakeFiles/sbcsdat.c.tmp
+07226a85efdef3540cb737eaa8ed9703 charset/CMakeFiles/generated_sbcsdat_c
+1eb846d9653f44da991c5965246be8a9 doc/CMakeFiles/doc
+1eb846d9653f44da991c5965246be8a9 doc/CMakeFiles/manpages

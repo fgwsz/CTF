@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/bidi_gettype.dir/terminal/bidi_gettype.c.o -o bidi_gettype  -lm -lrt -ldl libguiterminal.a libutils.a charset/libcharset.a -lm -lrt -ldl 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libptermxpms.a CMakeFiles/ptermxpms.dir/pterm-xpm.c.o CMakeFiles/ptermxpms.dir/pterm-rgb.c.o CMakeFiles/ptermxpms.dir/pterm-config-xpm.c.o CMakeFiles/ptermxpms.dir/pterm-config-rgb.c.o
+/usr/bin/ranlib libptermxpms.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libagent.a CMakeFiles/agent.dir/sshpubk.c.o CMakeFiles/agent.dir/pageant.c.o CMakeFiles/agent.dir/aqsync.c.o CMakeFiles/agent.dir/unix/agent-client.c.o
+/usr/bin/ranlib libagent.a

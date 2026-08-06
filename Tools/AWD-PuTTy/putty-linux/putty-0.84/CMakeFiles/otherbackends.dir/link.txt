@@ -1,0 +1,2 @@
+/usr/bin/ar qc libotherbackends.a CMakeFiles/otherbackends.dir/otherbackends/raw.c.o CMakeFiles/otherbackends.dir/otherbackends/rlogin.c.o CMakeFiles/otherbackends.dir/otherbackends/supdup.c.o CMakeFiles/otherbackends.dir/otherbackends/telnet.c.o CMakeFiles/otherbackends.dir/otherbackends/testback.c.o CMakeFiles/otherbackends.dir/unix/serial.c.o CMakeFiles/all-backends.dir/pinger.c.o CMakeFiles/logging.dir/logging.c.o CMakeFiles/logging.dir/utils/logeventf.c.o
+/usr/bin/ranlib libotherbackends.a

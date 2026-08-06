@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/test_host_strfoo.dir/utils/host_strchr_internal.c.o -o test_host_strfoo  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 

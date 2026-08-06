@@ -1,0 +1,2 @@
+/usr/bin/ar qc libeventloop.a CMakeFiles/eventloop.dir/callback.c.o CMakeFiles/eventloop.dir/timing.c.o CMakeFiles/eventloop.dir/unix/cliloop.c.o CMakeFiles/eventloop.dir/unix/uxsel.c.o
+/usr/bin/ranlib libeventloop.a
