@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/testcrypt.dir/test/testcrypt.c.o CMakeFiles/testcrypt.dir/sshpubk.c.o CMakeFiles/testcrypt.dir/ssh/crc-attack-detector.c.o -o testcrypt  -lm -lrt -ldl libkeygen.a libcrypto.a libutils.a charset/libcharset.a -lm -lrt -ldl 

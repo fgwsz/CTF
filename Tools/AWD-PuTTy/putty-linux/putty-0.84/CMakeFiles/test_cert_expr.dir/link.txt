@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/test_cert_expr.dir/utils/cert-expr.c.o -o test_cert_expr  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 

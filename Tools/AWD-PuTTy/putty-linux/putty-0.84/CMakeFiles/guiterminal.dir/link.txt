@@ -1,2 +1,0 @@
-/usr/bin/ar qc libguiterminal.a CMakeFiles/guiterminal.dir/terminal/terminal.c.o CMakeFiles/guiterminal.dir/terminal/bidi.c.o CMakeFiles/guiterminal.dir/ldisc.c.o CMakeFiles/guiterminal.dir/terminal/lineedit.c.o CMakeFiles/guiterminal.dir/config.c.o CMakeFiles/guiterminal.dir/dialog.c.o CMakeFiles/logging.dir/logging.c.o CMakeFiles/logging.dir/utils/logeventf.c.o
-/usr/bin/ranlib libguiterminal.a

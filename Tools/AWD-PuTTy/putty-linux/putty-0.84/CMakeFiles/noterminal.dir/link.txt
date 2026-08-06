@@ -1,2 +1,0 @@
-/usr/bin/ar qc libnoterminal.a CMakeFiles/noterminal.dir/stubs/no-term.c.o CMakeFiles/noterminal.dir/ldisc.c.o
-/usr/bin/ranlib libnoterminal.a

@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/testsc.dir/__/test/testsc.c.o CMakeFiles/overaligned_alloc.dir/__/utils/memory.c.o -o ../testsc  -lm -lrt -ldl ../libkeygen.a ../libcrypto.a ../libutils.a ../charset/libcharset.a -lm -lrt -ldl 

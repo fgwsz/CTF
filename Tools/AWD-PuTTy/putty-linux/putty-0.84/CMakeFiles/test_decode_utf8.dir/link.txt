@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/test_decode_utf8.dir/utils/decode_utf8.c.o -o test_decode_utf8  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 

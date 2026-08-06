@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsftpclient.a CMakeFiles/sftpclient.dir/psftpcommon.c.o CMakeFiles/sftpclient.dir/ssh/sftp.c.o CMakeFiles/sftpclient.dir/unix/sftp.c.o ssh/CMakeFiles/sftpcommon.dir/sftpcommon.c.o
-/usr/bin/ranlib libsftpclient.a

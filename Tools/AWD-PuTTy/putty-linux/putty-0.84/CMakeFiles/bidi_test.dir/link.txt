@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/bidi_test.dir/terminal/bidi_test.c.o -o bidi_test  -lm -lrt -ldl libguiterminal.a libutils.a charset/libcharset.a -lm -lrt -ldl 

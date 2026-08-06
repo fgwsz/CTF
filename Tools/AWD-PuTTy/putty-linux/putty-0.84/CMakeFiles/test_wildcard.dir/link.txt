@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/test_wildcard.dir/utils/wildcard.c.o -o test_wildcard  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 

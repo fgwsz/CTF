@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/psftp.dir/psftp.c.o CMakeFiles/psftp.dir/unix/unicode.c.o CMakeFiles/psftp.dir/unix/no-gtk.c.o CMakeFiles/psftp-be-list.dir/be_list.c.o -o psftp  -lm -lrt -ldl libsftpclient.a libeventloop.a libconsole.a ssh/libsshclient.a libsettings.a libnetwork.a libcrypto.a libutils.a charset/libcharset.a -lm -lrt -ldl 

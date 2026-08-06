@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/pscp.dir/pscp.c.o CMakeFiles/pscp.dir/unix/unicode.c.o CMakeFiles/pscp.dir/unix/no-gtk.c.o CMakeFiles/pscp-be-list.dir/be_list.c.o -o pscp  -lm -lrt -ldl libsftpclient.a libeventloop.a libconsole.a ssh/libsshclient.a libsettings.a libnetwork.a libcrypto.a libutils.a charset/libcharset.a -lm -lrt -ldl 

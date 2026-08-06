@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/test_unicode_norm.dir/utils/unicode-norm.c.o -o test_unicode_norm  -lm -lrt -ldl libutils.a charset/libcharset.a -lm -lrt -ldl 
